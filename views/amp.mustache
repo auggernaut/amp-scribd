@@ -1,0 +1,497 @@
+
+{{=[[ ]]=}}
+<!doctype html>
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>[[doc_title]]</title>
+    <link rel="canonical" href="[[canonical]]" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="Description" content="[[meta_description]]">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <!--<script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>-->
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <!--
+    <script id="amp-access" type="application/json">
+      {
+        "authorization":
+          "http://localhost:3000/json/auth.json?rid=READER_ID&url=SOURCE_URL",
+        "pingback":
+          "http://localhost:3000/pingback?rid=READER_ID&url=SOURCE_URL",
+        "authorizationFallbackResponse": {"error": true}
+      }
+    </script>
+    -->
+    <style amp-custom>
+    * {
+      box-sizing: border-box;
+    }
+    /* the sticky header */
+    :root {
+      --header-height: 56px;
+    }
+    #mainContent{
+    }
+    .sticky_header {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      z-index: 1000;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #fff;
+    }
+
+    /* general styling */
+    h1 {
+      text-align: center;
+    }
+    h1, main {
+      margin: 1rem;
+    }
+    a, a:visited {
+      color: inherit;
+      text-decoration: inherit;
+      background-color: inherit;
+    }
+    body > * {
+      font-family: Arial;
+      max-width: 560px;
+      font-family: Source Sans Pro,sans-serif;
+      overflow: hidden;
+    }
+
+    .flex_row {
+      display: flex;
+      flex-direction: row;
+    }
+    .flex_col {
+      display: flex;
+      flex-direction: column;
+    }
+    .color_divider>* {
+      height: 1px;
+    }
+    .color_divider {
+        position: relative;
+        width: 100%;
+        justify-content: flex-start;
+        z-index: 29;
+    }
+    .color_divider .seafoam_regular {
+      background-color: #02a793;
+    }
+    .color_divider .teal_dark {
+      background-color: #0d6069;
+    }
+    .color_divider .teal_light {
+      background-color: #509ba8;
+    }
+    .color_divider .midnight_light {
+      background-color: #003451;
+    }
+    .color_divider .wine_light {
+      background-color: #7f1652;
+    }
+    .color_divider .yellow_dark {
+      background-color: #d47500;
+    }
+    .header_container {
+      z-index: 30;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-width: 320px;
+      height: 3.75em;
+      max-height: 3.75em;
+      background: #fafbfd;
+      box-sizing: border-box;
+      padding: 0 14px;
+      background-color: #fff;
+      border-bottom: 0;
+    }
+    header {
+      display: block;
+      width: 100%;
+    }
+    .logo {
+      background-color: white;
+    }
+
+  .flat_btn {
+    background-color: #1e7b85;
+    line-height: 16px;
+    border: none;
+    color: #fff;
+  }
+
+  #search_btn {
+    border-radius: 0 4px 4px 0;
+    right: 30px;
+    height: 2em;
+    min-height: 2.5em;
+    min-width: 2.5em;
+    padding: 0;
+    position: relative;
+    vertical-align: bottom;
+  }
+
+  .search_input {
+    appearance: none;
+    transition: width .2s ease-in-out;
+    -moz-transition: width .2s ease-in-out;
+    -webkit-transition: width .2s ease-in-out;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #8f919e;
+    height: 2.5em;
+    outline: none;
+    padding: 0 12px;
+    position: relative;
+    width: 100%;
+  }
+  .search_form {
+    white-space: nowrap;
+    align-items: center;
+
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+  }
+  #doc_info{
+    margin: 10px;
+  }
+  .doc_title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    color: #000514;
+  }
+  .publish_info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    color: #57617a;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    word-break: break-word;
+    white-space: normal;
+    font-size: 14px;
+  }
+
+  .publish_info a {
+    color: #1e7b85;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .icons_container {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+  }
+  .wide_search {
+    width: 90%;
+  }
+  .sample-sidebar {
+    width: 60%;
+    background-image: linear-gradient(0deg,#fcf5ea,#fbf1f7 35%,#eff7f8 67%,#e9f7fe);
+  }
+  .logo_button {
+    border: none;
+    padding: 0;
+  }
+  .sticky_footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #eee;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .sticky_footer h4 {
+    color: black;
+    padding: 10px 0px;
+  }
+
+  amp-list div[role="list"] {
+    display: grid;
+    grid-gap: 0.5em;
+  }
+  .related_title {
+    margin: 50px;
+  }
+  .related_title amp-img {
+
+  }
+  .related_title h5 {
+    color: black;
+    margin: 0;
+  }
+
+  .related_titles h4{
+    text-align: left;
+    padding-left: 10px;
+    border: none;
+  }
+
+  .related_titles .author{
+    color: #57617a;
+    margin: 0 auto;
+    font-size: 12px;
+  }
+
+  .menu_item .fas{
+    margin-right: 16px;
+    font-size: 24px;
+    width: 24px;
+    color: #57617a;
+  }
+  #menu {
+    list-style-type: none;
+    padding-left: 10px;
+  }
+  .menu_item {
+    color: #57617a;
+    font-size: 14px;
+    display: block;
+    vertical-align: middle;
+    height: 60px;
+  }
+  #download_btn {
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 14px;
+    flex: 2;
+    font-weight: 400;
+  }
+  .secondary_button {
+    border: none;
+    font-weight: 400;
+    font-size: 12px;
+    flex: 1;
+    background-color: #fff;
+  }
+  .secondary_button .fas{
+    display: block;
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
+  amp-img.contain img {
+    object-fit: contain;
+  }
+  #bottomPadding {
+    height: 40px;
+  }
+  #obscureScreen {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 80vh;
+    z-index: 998;
+    background-color: #fff;
+    opacity: .95;
+  }
+  .promo {
+    border: 1px solid #d6ddf2;
+    background: #f8f9fd;
+    position: absolute;
+    top: 80vh;
+    min-width: 270px;
+    padding: 20px;
+    box-shadow: 0 0 7px rgba(0,0,0,.1);
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+  }
+  .promo h2 {
+    font-size: 18px;
+    margin: 0 0 15px;
+  }
+  .promo p {
+    font-size: 14px;
+    margin: 0;
+  }
+  .promo .flat_btn {
+    margin-top: 15px;
+    padding: 0 20px;
+  }
+
+  .promo #login_btn{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid hsla(0,0%,100%,.2);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 2.44444em;
+    line-height: 2.44444em;
+    min-width: 120px;
+    padding: 0 30px;
+    text-align: center;
+    background-color: #1e7b85;
+    color: #fff;
+  }
+  #menu-header{
+    background-color: white;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+  .pdf-page-inner {
+    width: 100% !important;
+    transform: scale(1.0) !important;
+  }
+  </style>
+  </head>
+  <body>
+    <amp-sidebar id="sidebar"
+      class="sample-sidebar"
+      layout="nodisplay"
+      side="left">
+      <h3 id='menu-header'><amp-img alt="Scribd" class="logo" src="/images/scribd_l_logo.png" width="150" height="40"/>Scribd</h3>
+      <nav toolbar="(min-width: 784px)"
+        toolbar-target="target-element-left">
+        <ul id='menu'>
+          <li class='menu_item'><i class="fas fa-home"></i>Home</li>
+          <li class='menu_item'><i class="fas fa-bookmark"></i>Saved</li>
+          <li class='menu_item'><i class="fas fa-chart-line"></i>Bestsellers</li>
+          <li class='menu_item'><i class="fas fa-book-open"></i>Books</li>
+          <li class='menu_item'><i class="fas fa-headphones-alt"></i>Audiobooks</li>
+          <li class='menu_item'><i class="fas fa-newspaper"></i>Magazines</li>
+          <li class='menu_item'><i class="fas fa-file-alt"></i>Documents</li>
+          <li class='menu_item'><i class="fas fa-music"></i>Sheet Music</li>
+        </ul>
+      </nav>
+
+    </amp-sidebar>
+    <div id="target-element-left"></div>
+    <div class="sticky_header">
+      <header tabindex="-1">
+        <div class="header_container flex_row simple">
+          <div class="flex_col">
+            <button class="logo_button flex_row" on="tap:sidebar.toggle" aria-label='scribd menu'>
+              <amp-img alt="Scribd" class="logo" src="/images/scribd_s_logo.png" width="22" height="26"/>
+            </a>
+          </div>
+          <div class="wide_search">
+            <form class="search_form" 
+              autocomplete="off" 
+              method="GET"
+              action="https://www.scribd.com/search?content_type=tops&page=1&language=1"
+              target="_top">
+              <label><input type="search" class="search_input" name="query" placeholder="Search the world's largest library" value="" aria-label="search"></label>
+              <button class="flat_btn" id="search_btn" type="submit" aria-label="search">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="color_divider flex_row">
+          <div class="seafoam_regular" style="width:4%"></div>
+          <div class="teal_dark" style="width:12%"></div>
+          <div class="teal_light" style="width:48%"></div>
+          <div class="midnight_light" style="width:12%"></div>
+          <div class="wine_light" style="width:16%"></div>
+          <div class="yellow_dark" style="width:8%"></div>
+        </div>
+      </header>
+    </div>
+
+    <div id="doc_info">
+      <h1 class="doc_title">[[doc_title]]</h1>
+      <div class="publish_info"><span>Uploaded by </span><a href="[[uploadedBy_profileUrl]]">[[uploadedBy_userName]]</a><span> on [[uploadedDate]]</span></div>
+      [[doc_description]]
+    </div>
+
+    <div class="sticky_header">
+        <div class="icons_container">
+            <button type="button" class="flat_btn" id="download_btn" aria-label="download">Download</button>
+            <button type="button" class='secondary_button'><i class="fas fa-bookmark" aria-label="save"></i>Save</button>
+            <button type="button" class='secondary_button'><i class="fas fa-info" aria-label="info"></i>Info</button>
+            <!--<button type="button" class='secondary_button'><i class="fas fa-info-circle"></i>Info</button>-->
+            <button type="button" class='secondary_button'><i class="fas fa-search" aria-label="search"></i>Search</button>
+      </div>
+    </div>
+
+    <div class='sticky_footer'>
+      <amp-accordion class="related_titles" animate>
+        <section>
+          <h4>RELATED TITLES</h4>
+          <div>
+            <amp-list height="200"
+              layout="fixed-height"
+              src="/json/relatedTitles.json">
+              <div placeholder>Loading ...</div>
+              <div fallback>Failed to load data.</div>
+              <template type="amp-mustache">
+                <amp-carousel id="alternate-images-carousel" width="50" 
+                    type="slides" 
+                    layout="responsive" 
+                    controls
+                    on="slideChange:AMP.setState({selected: { slide: event.index }})">
+                    {{#popular}}
+                    <div class='related_title'> 
+                      <a href="{{relatedUrl}}">
+                        <amp-img 
+                          src="{{imageUrl}}"
+                          height="155"
+                          width="117"
+                          alt="{{imageAlt}}"
+                          class="related_title_img">
+                        </amp-img>
+                        <h5>{{title}}</h5>
+                        <p class='author'>{{author}}</p>
+                      </a>
+                    </div>
+                    {{/popular}}
+                </amp-carousel>
+            </template>
+            </amp-list>
+          </div>
+        </section>
+      </amp-accordion>
+    </div>
+
+    <div id="obscureScreen">
+    </div>
+    <div class="promo">
+      <h2 class="title" role="presentation">You're Reading a Preview</h2>
+      <p>Unlock full access with a free trial.</p>
+      <button class="flat_btn" id="login_btn" type="button">Download With Free Trial</button>
+    </div>
+    <div id='mainContent'>
+      [[{htmlContent}]]
+    </div>
+
+<!--    <div amp-access="NOT subscriber" amp-access-hide>
+      <a on="tap:amp-access.login">Become a subscriber now!</a>
+    </div> -->
+
+    <div id='bottomPadding'></div>
+  </body>
+</html>

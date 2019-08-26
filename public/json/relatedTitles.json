@@ -1,0 +1,34 @@
+{
+    "items": [
+      {
+        "popular": [
+        {
+            "title": "Yes Please",
+            "author": "Amy Poehler",
+            "imageUrl": "https://imgv2-1-f.scribdassets.com/img/word_document/244157917/298x396/d0cbd421a3/1548403254?v=1",
+            "imageAlt": "Yes Please book cover",
+            "relatedUrl": "https://www.scribd.com/book/244157917/Yes-Please"
+        },
+        {
+            "title": "Sapiens: A Brief History of Humankind",
+            "author": "Yuval Noah Harrari",
+            "imageUrl": "https://imgv2-1-f.scribdassets.com/img/word_document/253264900/149x198/5948645a35/1548711957?v=1",
+            "imageAlt": "Sapiens book cover",
+            "relatedUrl": "https://www.scribd.com/audiobook/356337373/Sapiens-A-Brief-History-of-Humankind"
+        },
+        {
+            "title": "Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future ",
+            "author": "Ashlee Vance",
+            "imageUrl": "https://imgv2-2-f.scribdassets.com/img/word_document/263504218/149x198/5791495c90/1548832907?v=1",
+            "imageAlt": "Elon Musk book cover",
+            "relatedUrl": "https://www.scribd.com/book/263504218/Elon-Musk-Tesla-SpaceX-and-the-Quest-for-a-Fantastic-Future"
+        },
+        {
+            "title": "Dispatches from Pluto",
+            "author": "Richard Grant",
+            "imageUrl": "https://imgv2-2-f.scribdassets.com/img/word_document/282766939/298x396/ce234488d0/1548725330?v=1",
+            "imageAlt": "Dispatches from Pluto",
+            "relatedUrl": "https://www.scribd.com/book/282766939/Dispatches-from-Pluto-Lost-and-Found-in-the-Mississippi-Delta"
+        }]
+    }]
+}
